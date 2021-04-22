@@ -1,4 +1,4 @@
-!classDefinition: #NumeroTest category: 'Numero-Exercise'!
+!classDefinition: #NumeroTest category: #'Numero-Exercise'!
 TestCase subclass: #NumeroTest
 	instanceVariableNames: 'zero one two four oneFifth oneHalf five twoFifth twoTwentyfifth fiveHalfs three eight negativeOne negativeTwo'
 	classVariableNames: ''
@@ -287,7 +287,7 @@ setUp
 	! !
 
 
-!classDefinition: #Numero category: 'Numero-Exercise'!
+!classDefinition: #Numero category: #'Numero-Exercise'!
 Object subclass: #Numero
 	instanceVariableNames: ''
 	classVariableNames: ''
@@ -342,7 +342,7 @@ isZero
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Numero class' category: 'Numero-Exercise'!
+!classDefinition: 'Numero class' category: #'Numero-Exercise'!
 Numero class
 	instanceVariableNames: ''!
 
@@ -357,7 +357,7 @@ invalidNumberTypeErrorDescription
 	^ 'Tipo de número inválido!!!!!!'! !
 
 
-!classDefinition: #Entero category: 'Numero-Exercise'!
+!classDefinition: #Entero category: #'Numero-Exercise'!
 Numero subclass: #Entero
 	instanceVariableNames: 'value'
 	classVariableNames: ''
@@ -386,15 +386,15 @@ Numero subclass: #Entero
 	
 	^aDivisor divideToEntero: self! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'HernanWilkinson 5/7/2016 21:55'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:17:17'!
 // aDivisor 
 	
-	^self class with: value // aDivisor integerValue! !
+	^Entero with: value // aDivisor integerValue! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'JD 4/21/2021 16:49:49'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:06:07'!
 addEntero: anEntero
 
-	^self class with: value + anEntero integerValue! !
+	^Entero with: value + anEntero integerValue! !
 
 !Entero methodsFor: 'arithmetic operations' stamp: 'JD 4/21/2021 17:08:37'!
 addFraccion: aFraction
@@ -406,7 +406,7 @@ addFraccion: aFraction
 	
 	^newNumerator / newDenominator ! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'JD 4/21/2021 17:19:27'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:11:32'!
 divideToEntero: anEntero
 
 	^Fraccion with: anEntero over: self! !
@@ -416,7 +416,7 @@ divideToFraccion: aFraccion
 
 	^Fraccion with: (aFraccion numerator) over: (aFraccion denominator * self)! !
 
-!Entero methodsFor: 'arithmetic operations' stamp: 'HAW 9/24/2018 08:47:50'!
+!Entero methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:07:34'!
 fibonacci
 
 	| one two |
@@ -424,8 +424,7 @@ fibonacci
 	one := Entero with: 1.
 	two := Entero with: 2.
 	
-	self isNegative ifTrue: [self error: Entero negativeFibonacciErrorDescription ].	
-	(self isZero or: [self isOne]) ifTrue: [^one].
+	
 	
 	^ (self - one) fibonacci + (self - two) fibonacci
 		! !
@@ -504,7 +503,7 @@ isZero
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Entero class' category: 'Numero-Exercise'!
+!classDefinition: 'Entero class' category: #'Numero-Exercise'!
 Entero class
 	instanceVariableNames: ''!
 
@@ -512,16 +511,87 @@ Entero class
 negativeFibonacciErrorDescription
 	^ ' Fibonacci no está definido aquí para Enteros Negativos!!!!!!'! !
 
-!Entero class methodsFor: 'instance creation' stamp: 'HernanWilkinson 5/7/2016 22:53'!
+!Entero class methodsFor: 'instance creation' stamp: 'franco c 4/22/2021 17:04:30'!
 with: aValue 
 	
 	"Esta verificacion esta puesta por si se equivocan y quieren crear un Entero pasando otra cosa que un Integer - Hernan"
 	aValue isInteger ifFalse: [  self error: 'aValue debe ser anInteger' ].
-	
-	^self new initalizeWith: aValue! !
+	aValue isInteger ifFalse: [ self error: 'aValue debe ser anInteger' ].
+	(aValue < 0) ifTrue:[^Negativo new initalizeWith: aValue].
+	(aValue = 0) ifTrue:[^Cero new initialize].
+	(aValue = 1) ifTrue:[^Uno new initialize].
+	^self new initalizeWith: aValue ! !
 
 
-!classDefinition: #Fraccion category: 'Numero-Exercise'!
+!classDefinition: #Cero category: #'Numero-Exercise'!
+Entero subclass: #Cero
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numero-Exercise'!
+
+!Cero methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:06:32'!
+fibonacci
+	^Uno init! !
+
+!Cero methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:06:51'!
+initialize
+	value:= 0.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Cero class' category: #'Numero-Exercise'!
+Cero class
+	instanceVariableNames: ''!
+
+!Cero class methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:06:23'!
+init
+	^self new initialize! !
+
+
+!classDefinition: #Negativo category: #'Numero-Exercise'!
+Entero subclass: #Negativo
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numero-Exercise'!
+
+!Negativo methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:07:47'!
+fibonacci
+	^Entero error: Entero negativeFibonacciErrorDescription! !
+
+!Negativo methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:07:14'!
+initalizeWith: aValue
+	value:=aValue! !
+
+
+!classDefinition: #Uno category: #'Numero-Exercise'!
+Entero subclass: #Uno
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Numero-Exercise'!
+
+!Uno methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:08:32'!
+fibonacci
+	^self! !
+
+!Uno methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:08:18'!
+initialize
+	value:=1.! !
+
+"-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
+
+!classDefinition: 'Uno class' category: #'Numero-Exercise'!
+Uno class
+	instanceVariableNames: ''!
+
+!Uno class methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:08:01'!
+init
+	^self new initialize! !
+
+
+!classDefinition: #Fraccion category: #'Numero-Exercise'!
 Numero subclass: #Fraccion
 	instanceVariableNames: 'numerator denominator'
 	classVariableNames: ''
@@ -664,11 +734,11 @@ printOn: aStream
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
-!classDefinition: 'Fraccion class' category: 'Numero-Exercise'!
+!classDefinition: 'Fraccion class' category: #'Numero-Exercise'!
 Fraccion class
 	instanceVariableNames: ''!
 
-!Fraccion class methodsFor: 'intance creation' stamp: 'NR 9/23/2018 23:45:19'!
+!Fraccion class methodsFor: 'intance creation' stamp: 'franco c 4/22/2021 17:18:05'!
 with: aDividend over: aDivisor
 
 	| greatestCommonDivisor numerator denominator |
@@ -684,5 +754,5 @@ with: aDividend over: aDivisor
 	
 	denominator isOne ifTrue: [ ^numerator ].
 
-	^self new initializeWith: numerator over: denominator
+	^Fraccion new initializeWith: numerator over: denominator
 	! !
