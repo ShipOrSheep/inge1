@@ -25,7 +25,7 @@ test04isOneReturnsFalseWhenAskToOtherThanOne
 
 	self deny: zero isOne! !
 
-!NumeroTest methodsFor: 'tests' stamp: 'HernanWilkinson 5/7/2016 20:14'!
+!NumeroTest methodsFor: 'tests' stamp: 'franco c 4/22/2021 17:27:11'!
 test05EnteroAddsWithEnteroCorrectly
 
 	self assert: one + one equals: two! !
@@ -530,11 +530,12 @@ Entero subclass: #Cero
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Cero methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:06:32'!
+!Cero methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:06:32'!
 fibonacci
 	^Uno init! !
 
-!Cero methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:06:51'!
+
+!Cero methodsFor: 'initialization' stamp: 'franco c 4/22/2021 17:06:51'!
 initialize
 	value:= 0.! !
 
@@ -556,13 +557,14 @@ Entero subclass: #Negativo
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Negativo methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:07:47'!
-fibonacci
-	^Entero error: Entero negativeFibonacciErrorDescription! !
-
-!Negativo methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:07:14'!
+!Negativo methodsFor: 'initialization' stamp: 'franco c 4/22/2021 17:07:14'!
 initalizeWith: aValue
 	value:=aValue! !
+
+
+!Negativo methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:07:47'!
+fibonacci
+	^Entero error: Entero negativeFibonacciErrorDescription! !
 
 
 !classDefinition: #Uno category: #'Numero-Exercise'!
@@ -572,11 +574,12 @@ Entero subclass: #Uno
 	poolDictionaries: ''
 	category: 'Numero-Exercise'!
 
-!Uno methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:08:32'!
+!Uno methodsFor: 'arithmetic operations' stamp: 'franco c 4/22/2021 17:08:32'!
 fibonacci
 	^self! !
 
-!Uno methodsFor: 'as yet unclassified' stamp: 'franco c 4/22/2021 17:08:18'!
+
+!Uno methodsFor: 'initialization' stamp: 'franco c 4/22/2021 17:08:18'!
 initialize
 	value:=1.! !
 
