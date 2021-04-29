@@ -435,7 +435,7 @@ stackEmptyErrorDescription
 
 !classDefinition: #SentenceFinderByPrefix category: #'Stack-Exercise'!
 Object subclass: #SentenceFinderByPrefix
-	instanceVariableNames: 'foundElements popedElements'
+	instanceVariableNames: ''
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Stack-Exercise'!
@@ -482,42 +482,47 @@ initialize
 	foundElements  := OrderedCollection new.! !
 
 
-!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/28/2021 16:07:49'!
-addtoMatchingElementslistif:aString matches: popedElement 
+!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/29/2021 10:13:59'!
+addMatchingElementslistif:aString matches: popedElement to: foundElems
 
-	aString = (popedElement copyFrom: 1 to: aString size)  ifTrue:[foundElements add:popedElement]! !
+	aString = (popedElement copyFrom: 1 to: aString size)  ifTrue:[foundElems add:popedElement]! !
 
-!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/28/2021 15:52:05'!
+!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/29/2021 10:17:00'!
 find: aString in: aStack
-	
+	|foundElems popedElems|
+	foundElems:= OrderedCollection new.
+	popedElems:= OrderedCollection new.
+
 	self checkPrefixisValid: aString.
 	
-	self saveElementsWhere: aString Matches: aStack.
+	self saveElementsWhere: aString Matches:aStack to: foundElems with: popedElems.
 	
-	self pushBackElementstoStack: aStack.
+	self pushBackElementstoStack: aStack from: popedElems.
 	
-	^foundElements
+	^foundElems
 	
 ! !
 
-!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/28/2021 15:49:11'!
-pushBackElementstoStack: aStack
+!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/29/2021 10:19:12'!
+pushBackElementstoStack: aStack from: popedElems
 
-	1 to: (popedElements size) do: [:a|
-		aStack push: (popedElements at: ((popedElements size) +1 -a) )
-		].! !
+	1 to: (popedElems size) do: [:a|
+			aStack push: (popedElems at: (popedElems size +1 -a) )
+			].
+! !
 
-!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/28/2021 16:08:16'!
-saveElementsWhere: aString Matches: aStack
+!SentenceFinderByPrefix methodsFor: 'actions' stamp: 'franco c 4/29/2021 10:13:05'!
+saveElementsWhere: aString Matches:aStack to: foundElems with: popedElems
 	|popedElement|
 	1 to: (aStack size) do: [:a | 
 		popedElement:= aStack pop.
-		popedElements add: popedElement.
+		popedElems add: popedElement.
 		(self check: popedElement biggerthan: aString)  ifTrue:[
-			self addtoMatchingElementslistif:aString matches: popedElement
+			self addMatchingElementslistif:aString matches: popedElement to: foundElems
 			]
 		].
-	! !
+	
+! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
