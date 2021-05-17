@@ -1,0 +1,14 @@
+Readme escrito para explicar lo que nos ocurrió según nos pidió Hernán a través de mail.
+Trabajamos en la imagen de cuis de mi computadora (Jonatan Castro), hicimos file out del ejercicio y lo probamos en una imagen nueva de cuis. Sucede que la imagen nueva de cuis la extraje sobre la misma carpeta en que estaba la vieja. Para que entiendan que no es de mala fe les pido que nos pongan como no entregado, si es que tienen que corregir el ejercicio.
+Explico masomenos lo que me acuerdo de cómo fue la progresión del ejercicio:
+- test01 fue paso 1 y 2 de TDD, el test fallaba porque no teníamos la clase MarsRover con el punto. Tuvimos que hacerla y definir el get de la currentPosition. En ese entonces no era el mismo código con initialize y toda la bola porque nosotros al final corregimos la mayor parte del código repetido.
+- test02 al 05 paso 1 y 2 TDD, initialize con las 4 direcciones iniciales (las definimos, pues cada una que no estaba fallaba el test correspondiente).
+- test06 y 07 empezamos a hacer receiveCommand: con guardas e ifs
+- test 08 al 15 seguimos receiveCommand con mas guardas e ifs para los comandos $l y $r, porque dependiendo de a que dirección apuntaba el marsRover diferían las direcciones (antes estaba hardcodeado todo con respecto al Norte).
+- test16 rompia porque tenía una string de 2 comandos, y nosotros sólo aceptábamos 1. Lo solucionamos quick & dirty con un: 
+"1 to: (aCommandString size) do [:stringIndex | |aCommandChar| aCommandChar := aCommandString at: stringIndex. {Todos los ifs de los comandos}]".
+- Probamos test17 para ver si fallaba y no falló (eso no es muy TDD, porque debería fallar, pero lo dejamos por si en algún momento rompíamos algo y ese test lo catchea).
+- test18 probamos con una string complicada para ver si se rompía algo. Sucede que no habíamos implementado que el forward y back se muevan en X o en Y de forma distinta si es que estaba el MarsRover en North, East, West o South.
+- test19 al 22 fue la continuación de lo del test18.
+- test23 fallo porque ejecutaba los comandos despues de la x. Hicimos que según el valor de aCommandChar lo siguiente: case: $f [lo de siempre], case $b [etc], case $l [etc] case $r [etc], otro caso: [^]. Es decir, despues de todos los ifTrue e ifFalse, si no era ningún comando válido, retornábamos (sin error).
+- Luego nos dedicamos a quitar código repetido y a hacer polimorfismo sobre receiveCommands:. Al principio las funciones de marsRover-commands en las clases North, East, etc. recibian un aMarsRover, que se lo enviaba como self el objeto MarsRover al hacer receiveCommands. Tampoco habíamos quitado los checks de los ifs. Terminamos usando lo que mi compañero propuso de asSymbol, metiendo assert y lo de los error signals, e implementando bien el polimorfismo del lado de los puntos cardinales.
