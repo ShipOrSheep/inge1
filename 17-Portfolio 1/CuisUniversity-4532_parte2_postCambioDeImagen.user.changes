@@ -1,0 +1,1013 @@
+
+
+----QUIT----(9 March 2021 14:58:42) CuisUniversity-4532.image priorSource: 13044060!
+
+----STARTUP---- (9 March 2021 14:58:43) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-4532.image!
+
+
+----QUIT----(9 March 2021 14:58:43) CuisUniversity-4532.image priorSource: 16885479!
+
+----STARTUP---- (22 May 2021 15:16:21) as /home/quantic/facultad/inge1/cuisUniversity/CuisUniversity-4532.image!
+
+
+----End fileIn of /home/quantic/facultad/inge1/cuisUniversity/Packages/TerseGuide.pck.st----!
+
+Integer new!
+
+s := Rectangle new!
+
+s := Rectangle new!
+
+c := OrderedCollection with: 1 with: 2 with: 3!
+
+c addAll: s!
+
+c addAll: s!
+
+c addAll: s!
+
+s addAll: c!
+
+s addAll: c; yourself.!
+
+s addAll: c; yourself.!
+
+s addAll: c; yourself.!
+
+addAll!
+
+s addAll: c; yourself.!
+
+----QUIT----(22 May 2021 16:36:41) CuisUniversity-4532.image priorSource: 16885703!
+
+----STARTUP---- (27 May 2021 15:50:12) as /home/quantic/facultad/inge1/cuisUniversity/CuisUniversity-4532.image!
+
+
+----End fileIn of /home/quantic/facultad/inge1/cuisUniversity/Portfolio-Ejercicio.st----!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 15:51:30'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test01ReceptiveAccountHaveZeroAsBalanceWhenCreated stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test02DepositIncreasesBalanceOnTransactionValue stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test03WithdrawDecreasesBalanceOnTransactionValue stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test04WithdrawValueMustBePositive stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test05ReceptiveAccountKnowsRegisteredTransactions stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test06ReceptiveAccountDoNotKnowNotRegisteredTransactions stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+!testRun: #ReceptiveAccountTest #test07AccountKnowsItsTransactions stamp: 'JDC 5/27/2021 15:53:17'!
+PASSED!
+
+Object subclass: #FinancialAssetEntity
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+!classDefinition: #FinancialAssetEntity category: 'Portfolio-Ejercicio' stamp: 'JDC 5/27/2021 15:57:04'!
+Object subclass: #FinancialAssetEntity
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+FinancialAssetEntity subclass: #Portfolio
+	instanceVariableNames: 'accountsorPortfolios'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+!classDefinition: #Portfolio category: 'Portfolio-Ejercicio' stamp: 'JDC 5/27/2021 15:57:19'!
+FinancialAssetEntity subclass: #Portfolio
+	instanceVariableNames: 'accountsorPortfolios'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+FinancialAssetEntity subclass: #ReceptiveAccount
+	instanceVariableNames: 'transactions'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+!classDefinition: #ReceptiveAccount category: 'Portfolio-Ejercicio' stamp: 'JDC 5/27/2021 15:57:24'!
+FinancialAssetEntity subclass: #ReceptiveAccount
+	instanceVariableNames: 'transactions'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+!FinancialAssetEntity methodsFor: 'nil' stamp: 'JDC 5/27/2021 15:57:38'!
+accounts
+
+	self subclassResponsibility.! !
+!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:34'!
+balance
+
+	self subclassResponsibility.! !
+!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:45'!
+hasRegistered
+
+	self subclassResponsibility.! !
+!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:54' overrides: 16896425!
+initialize
+
+	self subclassResponsibility.! !
+!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:03:02'!
+transactions
+
+	self subclassResponsibility.! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:03:34'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:04:26' prior: 50862615 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	1 to: (accountsorPortfolios size) do: [:a | financialAssetEntity := ((accountsorPortfolios at: a) accounts).
+		1 to: (financialAssetEntity  size) do: [:b| accounts  add: (financialAssetEntity  at:b).].
+		]. 
+	
+	^accounts.
+	! !
+
+FinancialAssetEntity subclass: #Portfolio
+	instanceVariableNames: 'financialAssetEntities'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+
+!classDefinition: #Portfolio category: 'Portfolio-Ejercicio' stamp: 'JDC 5/27/2021 16:04:37'!
+FinancialAssetEntity subclass: #Portfolio
+	instanceVariableNames: 'financialAssetEntities'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'Portfolio-Ejercicio'!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:05:08' prior: 50862897 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	1 to: (financialAssetEntities size) do: [:a | financialAssetEntity := ((financialAssetEntities at: a) accounts).
+		1 to: (financialAssetEntity  size) do: [:b| accounts  add: (financialAssetEntity  at:b).].
+		]. 
+	
+	^accounts.
+	! !
+!Portfolio methodsFor: 'balance' stamp: 'JDC 5/27/2021 16:05:22' prior: 50862640 overrides: 50862846!
+balance
+	
+	^financialAssetEntities sum: [ :anAccountOrPortfolio | anAccountOrPortfolio balance ] ifEmpty: [ 0 ]! !
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:05:28' prior: 50862627!
+add: accountorPortfolio
+        
+	|accounts| 
+	accounts :=self accounts.
+	
+       1 to: ((accountorPortfolio accounts) size) do:[: a |(accounts includes: ((accountorPortfolio accounts)at: a)) ifTrue: [^self raiseCantAddDuplicatedAccountError].].
+               
+       
+	financialAssetEntities add: accountorPortfolio.! !
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:05:39' prior: 50862945!
+add: financialAssetEntity
+        
+	|accounts| 
+	accounts :=self accounts.
+	
+       1 to: ((financialAssetEntity accounts) size) do:[: a |(accounts includes: ((financialAssetEntity accounts)at: a)) ifTrue: [^self raiseCantAddDuplicatedAccountError].].
+               
+       
+	financialAssetEntities add: financialAssetEntity.! !
+!Portfolio methodsFor: 'initialization' stamp: 'JDC 5/27/2021 16:05:45' prior: 50862652 overrides: 50862856!
+initialize
+
+
+	financialAssetEntities := OrderedCollection  new.
+! !
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:06:04' prior: 50862663 overrides: 50862861!
+transactions
+    |transactions accountTransactions|
+
+	transactions := OrderedCollection  new.
+	1 to: (financialAssetEntities size) do: [:a | accountTransactions := ((financialAssetEntities at: a) transactions).
+		1 to: (accountTransactions  size) do: [:b| transactions  add: (accountTransactions  at:b).].
+		]. 
+	
+	^transactions.! !
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:06:21' prior: 50862978 overrides: 50862861!
+transactions
+    |transactions financialAssetEntity|
+
+	transactions := OrderedCollection  new.
+	1 to: (financialAssetEntities size) do: [:a | financialAssetEntity := ((financialAssetEntities at: a) transactions).
+		1 to: (financialAssetEntity  size) do: [:b| transactions  add: (financialAssetEntity  at:b).].
+		]. 
+	
+	^transactions.! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:06:28'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:10:08' prior: 50862958!
+add: financialAssetEntity
+        
+	|accounts| 
+	accounts := self accounts.
+	
+       1 to: ((financialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((financialAssetEntity accounts)at: a)) 
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].
+               
+       
+	financialAssetEntities add: financialAssetEntity.! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:12:15'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:13:51' prior: 50863036!
+add: financialAssetEntity
+        
+	|accounts| 
+	accounts := self accounts.
+	
+       1 to: ((financialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((financialAssetEntity accounts)at: a)) 
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].
+               
+	self assertNonRepeatedAccountsOnFinancialAssetEntity: financialAssetEntity.
+       
+	financialAssetEntities add: financialAssetEntity.! !
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:16:19'!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       1 to: ((aFinancialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((aFinancialAssetEntity accounts)at: a)) 
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:16:32' prior: 50863081!
+add: financialAssetEntity
+        
+	"|accounts| 
+	accounts := self accounts.
+	
+       1 to: ((financialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((financialAssetEntity accounts)at: a)) 
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		]."
+               
+	self assertNonRepeatedAccountsOnFinancialAssetEntity: financialAssetEntity.
+       
+	financialAssetEntities add: financialAssetEntity.! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:16:36'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:18:03' prior: 50863097!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       1 to: ((aFinancialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((aFinancialAssetEntity at: a) accounts))
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:18:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:18:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:18:07'!
+ERROR!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:18:40'!
+ERROR!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:18:03' prior: 50863157!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       1 to: ((aFinancialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((aFinancialAssetEntity at: a) accounts))
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:19:31'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:19:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:19:34'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:19:34'!
+ERROR!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:20:09' prior: 50863204!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       1 to: ((aFinancialAssetEntity accounts) size) do:
+		[ :a |
+			(accounts includes: ((aFinancialAssetEntity accounts) at: a))
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:20:12'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:20:29' prior: 50863251!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       aFinancialAssetEntity do:
+		[ :a |
+			(accounts includes: ((aFinancialAssetEntity accounts) at: a))
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:21:18' prior: 50863295!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       aFinancialAssetEntity do:
+		[ :anAccountOrPortfolio |
+			(accounts includes: anAccountOrPortfolio accounts)
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:21:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:21:21'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:21:21'!
+ERROR!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:21:24'!
+ERROR!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:22:23' prior: 50863307!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       (aFinancialAssetEntity accounts) do:
+		[ :anAccountOrPortfolio |
+			(accounts includes: anAccountOrPortfolio accounts)
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:22:26'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:22:26'!
+FAILURE!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:22:26'!
+FAILURE!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:23:35' prior: 50863353!
+assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
+        
+	| accounts | 
+	accounts := self accounts.
+	
+       (aFinancialAssetEntity accounts) do:
+		[ :anAccount |
+			(accounts includes: anAccount)
+			ifTrue: [^self raiseCantAddDuplicatedAccountError].
+		].! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:23:38'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:25:00' prior: 50862924 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	financialAssetEntities do: [:a | financialAssetEntity := ((financialAssetEntities at: a) accounts).
+		1 to: (financialAssetEntity  size) do: [:b| accounts  add: (financialAssetEntity  at:b).].
+		]. 
+	
+	^accounts.
+	! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:25:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:25:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:25:03'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:25:03'!
+ERROR!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:25:03'!
+ERROR!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:25:03'!
+ERROR!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:25:03'!
+ERROR!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:25:03'!
+ERROR!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:25:03'!
+FAILURE!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:25:04'!
+ERROR!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:26:33' prior: 50863443 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntity := aFinancialAssetEntity accounts.
+		financialAssetEntity do: [:b| accounts  add: (financialAssetEntity  at:b).].
+		]. 
+	
+	^accounts.
+	! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:26:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:26:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:26:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:26:36'!
+ERROR!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:26:36'!
+ERROR!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:26:36'!
+ERROR!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:26:36'!
+ERROR!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:26:36'!
+ERROR!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:26:36'!
+FAILURE!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:26:38'!
+ERROR!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:28:03' prior: 50863490 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntity := aFinancialAssetEntity accounts.
+		financialAssetEntity do: [ :anAccountOrPortfolio | 
+			accounts add: anAccountOrPortfolio.
+			].
+		]. 
+	
+	^accounts.
+	! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:28:06'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:28:42' prior: 50863537 overrides: 50862841!
+accounts
+
+	    |accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntity := aFinancialAssetEntity accounts.
+		financialAssetEntity do: [ :anAccount | 
+			accounts add: anAccount.
+			].
+		]. 
+	
+	^accounts.
+	! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:28:52'!
+PASSED!
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:30:56' prior: 50862992 overrides: 50862861!
+transactions
+    |transactions financialAssetEntityTransactions|
+
+	transactions := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntityTransactions := aFinancialAssetEntity transactions.
+		financialAssetEntityTransactions do: [ :aTransaction | 
+			transactions  add: aTransaction.
+			].
+		]. 
+	
+	^transactions.! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:30:58'!
+PASSED!
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:31:28' prior: 50863625 overrides: 50862861!
+transactions
+
+    |transactions financialAssetEntityTransactions|
+
+	transactions := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntityTransactions := aFinancialAssetEntity transactions.
+		financialAssetEntityTransactions do: [ :aTransaction | 
+			transactions  add: aTransaction.
+			].
+		]. 
+	
+	^transactions.! !
+
+s := Object named: 'Do'!
+
+s := 'do:' asSymbol!
+
+n := OrderedCollection with: 1 with: 2.!
+
+n perform: s withArguments: (Array with: [:a | a])!
+
+d := n perform: s withArguments: (Array with: [:a | a])!
+
+d!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:38:38'!
+compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: aSymbol
+
+	|accounts financialAssetEntity|
+
+	accounts := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | 
+		financialAssetEntity := aFinancialAssetEntity accounts.
+		financialAssetEntity do: [ :anAccount | 
+			accounts add: anAccount.
+			].
+		]. 
+	
+	^accounts.
+	! !
+!Portfolio methodsFor: 'private' stamp: 'JDC 5/27/2021 16:41:03' prior: 50863691!
+compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: aSymbol
+
+	| collectionOfObjects |
+
+	collectionOfObjects := OrderedCollection  new.
+	financialAssetEntities do: [ :aFinancialAssetEntity | | financialAssetEntity |
+		financialAssetEntity := aFinancialAssetEntity perform: aSymbol.
+		financialAssetEntity do: [ :anObject | 
+			collectionOfObjects add: anObject.
+			].
+		]. 
+	
+	^collectionOfObjects.
+	! !
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:41:54' prior: 50863671 overrides: 50862861!
+transactions
+
+	^self compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: (self transactions asSymbol).! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:41:57'!
+PASSED!
+
+p := Portfolio initialize!
+
+p transactions!
+!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:43:32' prior: 50863722 overrides: 50862861!
+transactions
+
+	^self compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: ('transactions' asSymbol).! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:43:36'!
+PASSED!
+!Portfolio methodsFor: 'accounts' stamp: 'JDC 5/27/2021 16:44:05' prior: 50863581 overrides: 50862841!
+accounts
+
+	^self compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: ('accounts' asSymbol).
+	! !
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test01newPortfolioBalanceEqualsCero stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test02PortfolioBalancewithOneaccount stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test03PortfolioBalancewithTwoAccounts stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test04PortfolioBalancewith1account1EmptyPortfolio stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test05PortfolioBalancewith1account1Portfolio stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test06PortfolioTransactionwith1account1Portfolio stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test07PortfolioRegistersTransaction stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+!testRun: #PortfolioTest #test08PortfolioDoesntaddDuplicatedAccount stamp: 'JDC 5/27/2021 16:44:07'!
+PASSED!
+
+----QUIT----(27 May 2021 16:47:04) CuisUniversity-4532.image priorSource: 16979792!
