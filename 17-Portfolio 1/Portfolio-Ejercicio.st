@@ -5,14 +5,14 @@ TestCase subclass: #PortfolioTest
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:11:55'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:11:55'!
 test01newPortfolioBalanceEqualsCero
 
 	|newPortfolio|
 	newPortfolio := Portfolio new.
 	self assert: newPortfolio balance equals: 0.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:15:11'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:15:11'!
 test02PortfolioBalancewithOneaccount
 
 	|newPortfolio  account|
@@ -24,7 +24,7 @@ test02PortfolioBalancewithOneaccount
 	newPortfolio add: account.
 	self assert: newPortfolio balance equals: 50.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:21:11'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:21:11'!
 test03PortfolioBalancewithTwoAccounts
 
 	|newPortfolio  account account2|
@@ -39,7 +39,7 @@ test03PortfolioBalancewithTwoAccounts
 	newPortfolio add: account2.
 	self assert: newPortfolio balance equals: 100.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:27:36'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:27:36'!
 test04PortfolioBalancewith1account1EmptyPortfolio
 
 	|newPortfolio  account portfolio2 |
@@ -55,7 +55,7 @@ test04PortfolioBalancewith1account1EmptyPortfolio
 	newPortfolio add: portfolio2.
 	self assert: newPortfolio balance equals: 50.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:29:51'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:29:51'!
 test05PortfolioBalancewith1account1Portfolio
 
 	|newPortfolio  account  account2 portfolio2 |
@@ -72,7 +72,7 @@ test05PortfolioBalancewith1account1Portfolio
 	newPortfolio add: portfolio2.
 	self assert: newPortfolio balance equals: 150.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 15:59:53'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:59:53'!
 test06PortfolioTransactionwith1account1Portfolio
 
 	|newPortfolio  account  account2 portfolio2 transactions|
@@ -94,7 +94,7 @@ test06PortfolioTransactionwith1account1Portfolio
 	
 	self assert: newPortfolio transactions equals: transactions.! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 16:05:02'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:05:02'!
 test07PortfolioRegistersTransaction
 
 	|newPortfolio  account  account2 portfolio2 transaction|
@@ -116,7 +116,7 @@ test07PortfolioRegistersTransaction
 	
 	self assert: (newPortfolio hasRegistered: transaction).! !
 
-!PortfolioTest methodsFor: 'tests' stamp: 'f 5/22/2021 16:13:23'!
+!PortfolioTest methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:13:23'!
 test08PortfolioDoesntaddDuplicatedAccount
 
 	|newPortfolio  account   portfolio2  |
@@ -326,127 +326,68 @@ for: aValue
 	^ self new initializeFor: aValue ! !
 
 
-!classDefinition: #FinancialAssetEntity category: 'Portfolio-Ejercicio'!
-Object subclass: #FinancialAssetEntity
-	instanceVariableNames: ''
-	classVariableNames: ''
-	poolDictionaries: ''
-	category: 'Portfolio-Ejercicio'!
-
-!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 15:57:38'!
-accounts
-
-	self subclassResponsibility.! !
-
-!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:34'!
-balance
-
-	self subclassResponsibility.! !
-
-!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:45'!
-hasRegistered
-
-	self subclassResponsibility.! !
-
-!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:01:54'!
-initialize
-
-	self subclassResponsibility.! !
-
-!FinancialAssetEntity methodsFor: 'as yet unclassified' stamp: 'JDC 5/27/2021 16:03:02'!
-transactions
-
-	self subclassResponsibility.! !
-
-
 !classDefinition: #Portfolio category: 'Portfolio-Ejercicio'!
-FinancialAssetEntity subclass: #Portfolio
-	instanceVariableNames: 'financialAssetEntities'
+Object subclass: #Portfolio
+	instanceVariableNames: 'accountsorPortfolios'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'Portfolio-Ejercicio'!
 
-!Portfolio methodsFor: 'balance' stamp: 'JDC 5/27/2021 16:05:22'!
-balance
-	
-	^financialAssetEntities sum: [ :anAccountOrPortfolio | anAccountOrPortfolio balance ] ifEmpty: [ 0 ]! !
-
-
-!Portfolio methodsFor: 'financialAssetEntities' stamp: 'JDC 5/27/2021 16:44:05'!
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:21:35'!
 accounts
 
-	^self compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: ('accounts' asSymbol).
+	    |accounts accountsPortfolio|
+
+	accounts := OrderedCollection  new.
+	1 to: (accountsorPortfolios size) do: [:a | accountsPortfolio := ((accountsorPortfolios at: a) accounts).
+		1 to: (accountsPortfolio  size) do: [:b| accounts  add: (accountsPortfolio  at:b).].
+		]. 
+	
+	^accounts.
 	! !
 
-!Portfolio methodsFor: 'financialAssetEntities' stamp: 'JDC 5/27/2021 16:16:32'!
-add: financialAssetEntity
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:29:33'!
+add: accountorPortfolio
         
-	"|accounts| 
-	accounts := self accounts.
+	|accounts| 
+	accounts :=self accounts.
 	
-       1 to: ((financialAssetEntity accounts) size) do:
-		[ :a |
-			(accounts includes: ((financialAssetEntity accounts)at: a)) 
-			ifTrue: [^self raiseCantAddDuplicatedAccountError].
-		]."
+       1 to: ((accountorPortfolio accounts) size) do:[: a |(accounts includes: ((accountorPortfolio accounts)at: a)) ifTrue: [^self raiseCantAddDuplicatedAccountError].].
                
-	self assertNonRepeatedAccountsOnFinancialAssetEntity: financialAssetEntity.
        
-	financialAssetEntities add: financialAssetEntity.! !
+	accountsorPortfolios add: accountorPortfolio.! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:19:44'!
+balance
+	
+	^accountsorPortfolios sum: [ :anAccountOrPortfolio | anAccountOrPortfolio balance ] ifEmpty: [ 0 ]! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:05:55'!
+hasRegistered: aTransaction
+	^((self transactions) includes: aTransaction)! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:18:05'!
+initialize
 
 
-!Portfolio methodsFor: 'error' stamp: 'f 5/22/2021 16:18:09'!
+	accountsorPortfolios := OrderedCollection  new.
+! !
+
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:18:09'!
 raiseCantAddDuplicatedAccountError
 
 	^self error: self class duplicatedAccountNotValid.! !
 
+!Portfolio methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 15:51:10'!
+transactions
+    |transactions accountTransactions|
 
-!Portfolio methodsFor: 'initialization' stamp: 'JDC 5/27/2021 16:05:45'!
-initialize
-
-
-	financialAssetEntities := OrderedCollection  new.
-! !
-
-
-!Portfolio methodsFor: 'private' stamp: 'JDC 5/27/2021 16:41:03'!
-compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: aSymbol
-
-	| collectionOfObjects |
-
-	collectionOfObjects := OrderedCollection  new.
-	financialAssetEntities do: [ :aFinancialAssetEntity | | financialAssetEntity |
-		financialAssetEntity := aFinancialAssetEntity perform: aSymbol.
-		financialAssetEntity do: [ :anObject | 
-			collectionOfObjects add: anObject.
-			].
+	transactions := OrderedCollection  new.
+	1 to: (accountsorPortfolios size) do: [:a | accountTransactions := ((accountsorPortfolios at: a) transactions).
+		1 to: (accountTransactions  size) do: [:b| transactions  add: (accountTransactions  at:b).].
 		]. 
 	
-	^collectionOfObjects.
-	! !
-
-
-!Portfolio methodsFor: 'assert' stamp: 'JDC 5/27/2021 16:23:35'!
-assertNonRepeatedAccountsOnFinancialAssetEntity: aFinancialAssetEntity
-        
-	| accounts | 
-	accounts := self accounts.
-	
-       (aFinancialAssetEntity accounts) do:
-		[ :anAccount |
-			(accounts includes: anAccount)
-			ifTrue: [^self raiseCantAddDuplicatedAccountError].
-		].! !
-
-
-!Portfolio methodsFor: 'transactions' stamp: 'f 5/22/2021 16:05:55'!
-hasRegistered: aTransaction
-	^((self transactions) includes: aTransaction)! !
-
-!Portfolio methodsFor: 'transactions' stamp: 'JDC 5/27/2021 16:43:32'!
-transactions
-
-	^self compileFromFinancialAssetEntitiesCollectionOfObjectsReturnedBy: ('transactions' asSymbol).! !
+	^transactions.! !
 
 "-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- "!
 
@@ -466,7 +407,7 @@ initialize
 
 
 !classDefinition: #ReceptiveAccount category: 'Portfolio-Ejercicio'!
-FinancialAssetEntity subclass: #ReceptiveAccount
+Object subclass: #ReceptiveAccount
 	instanceVariableNames: 'transactions'
 	classVariableNames: ''
 	poolDictionaries: ''
@@ -503,7 +444,7 @@ hasRegistered: aTransaction
 ! !
 
 
-!ReceptiveAccount methodsFor: 'accounts' stamp: 'f 5/22/2021 16:23:21'!
+!ReceptiveAccount methodsFor: 'as yet unclassified' stamp: 'f 5/22/2021 16:23:21'!
 accounts
 	^(OrderedCollection with: self)! !
 
